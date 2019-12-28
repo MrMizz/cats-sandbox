@@ -9,4 +9,16 @@ object TreeADT {
 
   final case class Leaf[A](value: A) extends Tree[A]
 
+  object Tree {
+
+    def apply[A](value: A): Tree[A] = {
+      Leaf(value)
+    }
+
+    def apply[A](leftValue: A)(rightValue: A): Branch[A] = {
+      Branch(left = Tree(leftValue), right = Tree(rightValue))
+    }
+
+  }
+
 }
